@@ -179,7 +179,7 @@
                          style="      border-radius: 8px 8px 0px 0px; border-top:  3px solid #cb3709;">
                         <div class="weui-cell__hd"><label class="weui-label">需求金额</label></div>
                         <div class="weui-cell__bd">
-                            <input class="weui-input" v-model="form.amount"/>
+                            <input class="weui-input" type="number" pattern="[0-9]*"  v-model="form.amount"/>
                         </div>
                     </div>
 
