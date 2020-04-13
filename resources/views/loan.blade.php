@@ -490,7 +490,7 @@
                 <p class="weui-footer__links">
                     <a href="javascript:" class="weui-footer__link">底部链接文本</a>
                 </p>
-                <p class="weui-footer__text">Copyright © 2008-2019 weui.io</p>
+                <p class="weui-footer__text">Copyright © 2008-2019 新房网  </p>
             </div>
         </div>
     </div>
