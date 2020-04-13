@@ -2,6 +2,9 @@
 
 return [
 
+    'sms_account' => env('SMS_ACCOUNT', 'Laravel'),
+    'sms_password' => env('SMS_PASSWORD', 'Laravel'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Name
