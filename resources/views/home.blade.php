@@ -8,23 +8,14 @@
         .card {
             margin-bottom: 20px;
         }
+        .header_title{
+            margin:10px 0px;
+            color: #298fe2;
+        }
     </style>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header">Dashboard</div>
-
-                    <div class="card-body">
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-                        @endif
-
-
-                    </div>
-                </div>
 
 
                 @foreach($lists as $key=>$l)
@@ -35,7 +26,7 @@
 
                             <div class="container">
 
-                                <h5>基本信息</h5>
+                                <h5 class="header_title">基本信息</h5>
                                 <div class="row">
 
 
@@ -53,7 +44,7 @@
 
 
                             <div class="container">
-                                <h5>工作情况 ( {{$l->workType()}} )</h5>
+                                <h5 class="header_title">工作情况 ( {{$l->workType()}} )</h5>
                                 <div class="row">
 
 
@@ -94,7 +85,7 @@
 
 
                             <div class="container">
-                                <h5>补充信息</h5>
+                                <h5 class="header_title">补充信息</h5>
                                 <div class="row">
 
 
@@ -117,6 +108,9 @@
                     </div>
 
                 @endforeach
+
+
+                {{$lists->render()}}
             </div>
         </div>
     </div>
