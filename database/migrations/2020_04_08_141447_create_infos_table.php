@@ -15,6 +15,7 @@ class CreateInfosTable extends Migration
     {
         Schema::create('infos', function (Blueprint $table) {
             $table->id();
+            $table->string("quota")->comment("quota");
 
 
             $table->string("name")->comment("name");

@@ -23,3 +23,7 @@ Route::get("/send_sms", "InfoController@sendSms");
 Route::get("/loan", "InfoController@index");
 Route::post("/loan", "InfoController@store");
 Route::put("/loan", "InfoController@update");
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -94,13 +94,12 @@ class Info extends Model
         }
 
 
-
         //÷12×5%×36   company_sum
         if (!empty($request->company_sum)) {
 
             if ($request->company_sum > 0) {
 
-                $tmp = $request->company_sum /12*0.05* 36;
+                $tmp = $request->company_sum / 12 * 0.05 * 36;
 
 
                 $quota = max($tmp, $quota);
@@ -121,4 +120,40 @@ class Info extends Model
         return $quota;
 
     }
+
+    public function workType()
+    {
+
+        if ($this->work_type == 1) {
+            return "工作";
+        }
+        if ($this->work_type == 2) {
+            return "经营";
+        }
+        if ($this->work_type == 3) {
+            return "无业";
+        }
+
+    }
+
+    public function getInfo($keyword)
+    {
+
+        if (!empty($this->info) ){
+            $info = json_decode($this->info);
+
+
+            foreach($info as $key=> $i){
+
+
+                if($key==$keyword){
+
+                    return $i;
+                }
+            }
+
+
+        }
+    }
+
 }
