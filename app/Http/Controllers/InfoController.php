@@ -21,7 +21,7 @@ class InfoController extends Controller
 
         Cache::put("SMSCODE" . $phone, $rand);
 
-        $msg = "【新房网】新房易分期提醒您：您的验证码是 " . $rand . "  请于15分钟内输入，工作人员不会向您索取，请勿泄露。";
+        $msg = "【今日科技】新房易分期提醒您：您的验证码是 " . $rand . "  请于15分钟内输入，工作人员不会向您索取，请勿泄露。";
 
 
         $rs = Sms::sendSms($phone, $msg);
