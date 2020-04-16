@@ -146,7 +146,7 @@
         }
     </style>
 </head>
-<body data-weui-theme="light" style="background: #ff8f53">
+<body data-weui-theme="light" style="background: #ffb817">
 <div class="page" id="app">
 
 
@@ -161,11 +161,11 @@
         ">
 
 
-            <img src="/images/header_bg.png" alt="" style="
+         {{--   <img src="/images/header_bg.png" alt="" style="
     top: -3.4rem;
     z-index: 999;
 
-    width: 100%;"></div>
+    width: 100%;"></div>--}}
 
         <div class="weui-form__control-area" style="margin-top:0px">
 
