@@ -21,7 +21,7 @@ class InfoController extends Controller
 
         Cache::put("SMSCODE" . $phone, $rand);
 
-        $msg = "【今日科技】新房易分期提醒您：您的验证码是 " . $rand . "  请于15分钟内输入，工作人员不会向您索取，请勿泄露。";
+        $msg = "【今日科技】您的验证码是 " . $rand . "  ,新房易分期提醒您:请于15分钟内输入，工作人员不会向您索取，请勿泄露。";
 
 
         $rs = Sms::sendSms($phone, $msg);
@@ -42,22 +42,22 @@ class InfoController extends Controller
     public function store(Request $request)
     {
 
-        /*
-                $i = Info::first();
+
+        /*        $i = Info::first();
                 return response()->json($i, 201);*/
         //return response()->json(["msg"=>"失败"], 403);
 
 
         //check phone code
 
-        $code = Cache::get("SMSCODE" . $request->phone);
+  /*      $code = Cache::get("SMSCODE" . $request->phone);
 
 
         if ($code != $request->sms_code || !$code) {
             return response()->json(["msg" => "验证码错误"], 403);
 
 
-        }
+        }*/
 
 
         $i = new Info();
@@ -84,7 +84,12 @@ class InfoController extends Controller
         $info = $request->all();
 
 
-        $quota = Info::calculator($request);
+        $quota = Info::calculator($request)."";
+
+
+        //return $quota;
+
+
 
         Info::where("id", $id)->update(["info" => json_encode($info), "work_type" => $request->work_type, "quota" => $quota]);
 

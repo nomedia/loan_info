@@ -13,7 +13,22 @@ class Info extends Model
      */
     public static function calculator($request)
     {
+        $work_type = $request->work_type;
 
+
+        $max = 50;
+
+        $min = 10;
+        if ($work_type == 1) {
+            $max = 50;
+
+        } else if ($work_type == 2) {
+            $max = 300;
+            $min = 50;
+
+        } else if ($work_type == 3) {
+            $max = 30;
+        }
         $quota = 0;
 
         //全款房统一50万
@@ -23,7 +38,7 @@ class Info extends Model
 
             if ($request->house_2 == "全款") {
 
-                $quota = 500000;
+                $quota = $max;
             }
 
 
@@ -109,13 +124,18 @@ class Info extends Model
         }
 
 
-        if ($quota > 500000) {
+        if ($quota > $max) {
 
-            $quota = 500000;
+            $quota = $max;
+        }
+
+        if ($quota < $min) {
+
+            $quota = $min;
         }
 
 
-        $quota = floor($quota / 10000) . "万";
+        $quota = floor($quota) . "万";
 
         return $quota;
 
@@ -139,14 +159,14 @@ class Info extends Model
     public function getInfo($keyword)
     {
 
-        if (!empty($this->info) ){
+        if (!empty($this->info)) {
             $info = json_decode($this->info);
 
 
-            foreach($info as $key=> $i){
+            foreach ($info as $key => $i) {
 
 
-                if($key==$keyword){
+                if ($key == $keyword) {
 
                     return $i;
                 }
