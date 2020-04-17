@@ -152,11 +152,11 @@
     </style>
 </head>
 <body data-weui-theme="light"
-      style="    background: url(../images/topbg.png) center top / 100% repeat-y rgb(178, 178, 178);">
+      style="    background: url(../images/topbg.png?ud=2) center top / 100% repeat-y rgb(178, 178, 178);">
 <div class="page" id="app">
 
 
-    <div class="weui-form" style="background-color: #ff8f53;margin-top;0px   ;  background: rgb(178, 178, 178) url(../images/topbg.png) repeat-y center top / 10rem 11.15rem;
+    <div class="weui-form" style="background-color: #ff8f53;margin-top;0px   ;  background: rgb(178, 178, 178) url(../images/topbg.png?ud=2) repeat-y center top / 10rem 11.15rem;
     background-size: 100%;">
 
         <div class="weui-form__text-area">
