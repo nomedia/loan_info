@@ -21,7 +21,7 @@ class InfoController extends Controller
 
         Cache::put("SMSCODE" . $phone, $rand);
 
-        $msg = "【今日科技】您的验证码是 " . $rand . "  ,新房易分期提醒您:请于15分钟内输入，工作人员不会向您索取，请勿泄露。";
+        $msg = "【今日科技】".$rand."  验证码，新房易分期提醒您:请于15分钟内输入，工作人员不会向您索取，请勿泄露。";
 
 
         $rs = Sms::sendSms($phone, $msg);
@@ -42,8 +42,8 @@ class InfoController extends Controller
     public function store(Request $request)
     {
 
-
-        /*        $i = Info::first();
+/*
+              $i = Info::first();
                 return response()->json($i, 201);*/
         //return response()->json(["msg"=>"失败"], 403);
 

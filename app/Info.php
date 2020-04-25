@@ -33,16 +33,41 @@ class Info extends Model
 
         //全款房统一50万
 
+        //  全款房，全款房额度为房子评估价*70%+车子评估价*40%，
+        if (!empty($request->house_1)) {
 
-        if (!empty($request->house_2)) {
+            if ($request->house_1 == "全款房") {
 
-            if ($request->house_2 == "全款") {
+                $quota = $request->house_4 * 0.7;
 
-                $quota = $max;
+
+                if (!empty($request->car_3)) {
+
+
+                    $quota = $quota + $request->car_3 * 0.4;
+
+
+                }
             }
 
+            if ($request->house_1 == "按揭房") {
+
+                $quota = $request->house_4;
+
+
+                if (!empty($request->car_3)) {
+
+
+                    $quota = $quota + $request->car_3 * 0.4;
+
+
+                }
+            }
 
         }
+
+
+
 
 
         //policy_fee
@@ -80,7 +105,7 @@ class Info extends Model
         //house_3
 
         //房子月供  x100 倍
-        if (!empty($request->house_3)) {
+/*        if (!empty($request->house_3)) {
 
             if ($request->house_3 > 0) {
 
@@ -91,7 +116,7 @@ class Info extends Model
             }
 
 
-        }
+        }*/
 
 
         //无业收入  income_month

@@ -149,18 +149,32 @@
             font-size: 12px;
             color: #2d2c28;
         }
+        .red {
+        color: red;
+        }
     </style>
 </head>
 <body data-weui-theme="light"
       style="    background: url(../images/topbg.png?ud=2) center top / 100% repeat-y rgb(178, 178, 178);">
 <div class="page" id="app">
 
+    <div class="weui-form__text-area">
 
-    <div class="weui-form" style="background-color: #ff8f53;margin-top;0px   ;  background: rgb(178, 178, 178) url(../images/topbg.png?ud=2) repeat-y center top / 10rem 11.15rem;
+        <div class="row">
+
+
+    <h4 style="margin: 20px;margin-left:0px;text-align: left;color: white">今日科技</h4>
+        </div>
+
+    </div>
+    <div class="weui-form" style="background-color: #ff8f53;padding-top:0px;  background: rgb(178, 178, 178) url(../images/topbg.png?ud=2) repeat-y center top / 10rem 11.15rem;
     background-size: 100%;">
 
         <div class="weui-form__text-area">
-            <h2 class="weui-form__title">额度计算器</h2>
+
+
+
+            <h2 class="weui-form__title">贷款测算</h2>
             <div class="weui-form__desc"></div>
         </div>
         <div style="  /*  background-image:linear-gradient(-135deg, rgb(167, 85, 170) 30%, rgb(255, 143, 83) 100%,rgb(255, 143, 83) 100%);*/
@@ -180,11 +194,26 @@
                     <div class="weui-cells__title"></div>
                     <div class="weui-cells weui-cells_form" id="step1" v-bind:class="{step1:isStep1}">
 
-
                         <div class="weui-cell weui-cell_active"
                              style="      border-radius: 8px 8px 0px 0px; border-top:  3px solid #2f2f2f;">
 
-                            <div class="weui-cell__hd"><label class="weui-label">需求金额</label></div>
+
+                        <div class="weui-cell__hd"><label class="weui-label">  <span class="red">* </span> 客户姓名:</label></div>
+                            <div class="weui-cell__bd">
+                                <input class="weui-input"
+                                       v-model="form.name">
+                            </div>
+                        </div>
+
+                        <div class="weui-cell weui-cell_active">
+                            <div class="weui-cell__hd"><label class="weui-label"><span class="red">* </span> 年龄:</label></div>
+                            <div class="weui-cell__bd">
+                                <input class="weui-input" type="number" v-model="form.id_card">
+                            </div>
+                        </div>
+                        <div class="weui-cell weui-cell_active"
+                          >
+                            <div class="weui-cell__hd"><label class="weui-label"><span class="red">* </span> 需求金额:</label></div>
                             <div class="weui-cell__bd">
                                 <input class="weui-input" type="number" pattern="[0-9]*" v-model="form.amount"
                                        style="width: 80%"/>
@@ -195,7 +224,7 @@
 
                         <div class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
                             <div class="weui-cell__hd">
-                                <label for="" class="weui-label">贷款用途：</label>
+                                <label for="" class="weui-label"><span class="red">* </span> 贷款用途:</label>
                             </div>
                             <div class="weui-cell__bd">
                                 <select class="weui-select" name="select2" v-model="form.use">
@@ -213,7 +242,7 @@
 
                         <div class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
                             <div class="weui-cell__hd">
-                                <label for="" class="weui-label">还款期限：</label>
+                                <label for="" class="weui-label"><span class="red">* </span> 还款期限:</label>
                             </div>
                             <div class="weui-cell__bd">
                                 <select class="weui-select" name="select2" v-model="form.period">
@@ -239,7 +268,7 @@
 
 
                         <div class="weui-cell weui-cell_active">
-                            <div class="weui-cell__hd"><label class="weui-label">手机号</label></div>
+                            <div class="weui-cell__hd"><label class="weui-label"><span class="red">* </span> 手机号:</label></div>
                             <div class="weui-cell__bd">
                                 <input class="weui-input" type="number" pattern="[0-9]*" value="" v-model="form.phone">
                             </div>
@@ -248,7 +277,7 @@
 
 
                         <div class="weui-cell weui-cell_active weui-cell_vcode">
-                            <div class="weui-cell__hd"><label class="weui-label">验证码</label></div>
+                            <div class="weui-cell__hd"><label class="weui-label"><span class="red">* </span> 验证码:</label></div>
                             <div class="weui-cell__bd">
                                 <input autofocus="" class="weui-input" type="text" pattern="[0-9]*"
                                        maxlength="6" v-model="form.sms_code">
@@ -263,28 +292,14 @@
 
 
                         <div class="weui-cell weui-cell_active">
-                            <div class="weui-cell__hd"><label class="weui-label">推荐人手机：</label></div>
+                            <div class="weui-cell__hd"><label class="weui-label">推荐人手机:</label></div>
                             <div class="weui-cell__bd">
                                 <input class="weui-input"
                                        v-model="form.invite">
                             </div>
                         </div>
 
-                        <div class="weui-cell weui-cell_active">
 
-                            <div class="weui-cell__hd"><label class="weui-label">客户姓名</label></div>
-                            <div class="weui-cell__bd">
-                                <input class="weui-input"
-                                       v-model="form.name">
-                            </div>
-                        </div>
-
-                        <div class="weui-cell weui-cell_active">
-                            <div class="weui-cell__hd"><label class="weui-label">出生日期</label></div>
-                            <div class="weui-cell__bd">
-                                <input class="weui-input" type="date" v-model="form.id_card">
-                            </div>
-                        </div>
 
                         <div class="weui-cell weui-cell_active"
                              style="border-bottom:3px solid #2f2f2f; border-radius: 0px 0px 8px 8px; ">
@@ -314,7 +329,7 @@
                             <div class="weui-cell weui-cell_active"
 
                                  style="      border-radius: 8px 8px 0px 0px; border-top:  3px solid #2f2f2f;">
-                                <div class="weui-cell__hd"><label class="weui-label">单位所在地</label></div>
+                                <div class="weui-cell__hd"><label class="weui-label"><span class="red">* </span> 单位所在市:</label></div>
                                 <div class="weui-cell__bd">
                                     <input class="weui-input" v-model="form.company_address"/>
                                 </div>
@@ -329,7 +344,7 @@
          --}}
 
                             <div class="weui-cell weui-cell_active">
-                                <div class="weui-cell__hd"><label class="weui-label">最近一年营业额</label></div>
+                                <div class="weui-cell__hd"><label class="weui-label">最<span class="red">* </span> 近一年营业额:</label></div>
                                 <div class="weui-cell__bd">
                                     <input class="weui-input" type="number" pattern="[0-9]*"
                                            v-model="form.company_sum"
@@ -340,7 +355,7 @@
                             </div>
 
                             <div class="weui-cell weui-cell_active">
-                                <div class="weui-cell__hd"><label class="weui-label">最近一年缴税（增值税）</label></div>
+                                <div class="weui-cell__hd"><label class="weui-label"><span class="red">* </span> 最近一年缴税（增值税）:</label></div>
                                 <div class="weui-cell__bd">
                                     <input class="weui-input" type="number" pattern="[0-9]*"
                                            v-model="form.company_tax" style="width: 80%"/>
@@ -353,7 +368,7 @@
                             <div class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
                                 <div class="weui-cell__hd">
 
-                                    <label for="" class="weui-label">是否是法人：</label>
+                                    <label for="" class="weui-label"><span class="red">* </span> 是否是法人:</label>
 
                                 </div>
                                 <div class="weui-cell__bd">
@@ -370,14 +385,17 @@
                                 </div>
                             </div>
                             <div class="weui-cell weui-cell_active">
-                                <div class="weui-cell__hd"><label class="weui-label">本人占股：</label></div>
+                                <div class="weui-cell__hd"><label class="weui-label"><span class="red">* </span> 本人占股:</label></div>
                                 <div class="weui-cell__bd">
-                                    <input class="weui-input" v-model="form.legoal_stock"/>
+                                    <input class="weui-input" v-model="form.legoal_stock"
+                                           style="width: 80%"/>
+
+                                    %
                                 </div>
                             </div>
 
                             <div class="weui-cell weui-cell_active">
-                                <div class="weui-cell__hd"><label class="weui-label">公司行业：</label></div>
+                                <div class="weui-cell__hd"><label class="weui-label"><span class="red">* </span> 公司行业:</label></div>
                                 <div class="weui-cell__bd">
                                     <input class="weui-input"
                                            v-model="form.company_indsutry"/>
@@ -389,13 +407,13 @@
                                  style="border-bottom:3px solid #2f2f2f; border-radius: 0px 0px 8px 8px; ">
                                 <div class="weui-cell__hd">
 
-                                    <label for="" class="weui-label">公司注册年限：</label>
+                                    <label for="" class="weui-label"><span class="red">* </span> 公司注册年限:</label>
 
                                 </div>
                                 <div class="weui-cell__bd">
 
 
-                                    <select class="weui-select" name="select2" v-model="form.is_legal"/>
+                                    <select class="weui-select" name="select2" v-model="form.year"/>
                                     <option value="">请选择</option>
 
                                     <option value="无注册">无注册</option>
@@ -430,7 +448,7 @@
                                  style="      border-radius: 8px 8px 0px 0px; border-top:  3px solid #2f2f2f;">
                                 <div class="weui-cell__hd">
 
-                                    <label for="" class="weui-label">收入来源：</label>
+                                    <label for="" class="weui-label"><span class="red">* </span> 收入来源:</label>
 
                                 </div>
                                 <div class="weui-cell__bd">
@@ -449,10 +467,15 @@
                                     </select>
                                 </div>
                             </div>
-
+                            <div class="weui-cell weui-cell_active">
+                                <div class="weui-cell__hd"><label class="weui-label"><span class="red">* </span> 月收入额:</label></div>
+                                <div class="weui-cell__bd">
+                                    <input class="weui-input" type="number" pattern="[0-9]*" v-model="form.income_month_money"/>
+                                </div>
+                            </div>
                             <div class="weui-cell weui-cell_active"
                                  style="border-bottom:3px solid #2f2f2f; border-radius: 0px 0px 8px 8px; ">
-                                <div class="weui-cell__hd"><label class="weui-label">银行流水：</label></div>
+                                <div class="weui-cell__hd"><label class="weui-label"><span class="red">* </span> 银行流水:</label></div>
                                 <div class="weui-cell__bd">
                                     <input class="weui-input" type="number" pattern="[0-9]*"
                                            v-model="form.income_month"
@@ -476,14 +499,14 @@
                                  style="      border-radius: 8px 8px 0px 0px; border-top:  3px solid #2f2f2f;">
 
 
-                                <div class="weui-cell__hd"><label class="weui-label">职位</label></div>
+                                <div class="weui-cell__hd"><label class="weui-label"><span class="red">* </span> 职位:</label></div>
                                 <div class="weui-cell__bd">
                                     <input class="weui-input" v-model="form.company_name"/>
                                 </div>
                             </div>
 
                             <div class="weui-cell weui-cell_active">
-                                <div class="weui-cell__hd"><label class="weui-label">单位所在地</label></div>
+                                <div class="weui-cell__hd"><label class="weui-label"><span class="red">* </span> 单位所在市:</label></div>
                                 <div class="weui-cell__bd">
                                     <input class="weui-input" v-model="form.company_address"/>
                                 </div>
@@ -493,7 +516,7 @@
                             <div class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
                                 <div class="weui-cell__hd">
 
-                                    <label for="" class="weui-label">现单位上班年限：</label>
+                                    <label for="" class="weui-label"><span class="red">* </span> 现单位上班年限:</label>
 
                                 </div>
                                 <div class="weui-cell__bd">
@@ -514,7 +537,7 @@
                             <div class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
                                 <div class="weui-cell__hd">
 
-                                    <label for="" class="weui-label">工资发放形式：</label>
+                                    <label for="" class="weui-label"><span class="red">* </span> 工资发放形式:</label>
 
                                 </div>
                                 <div class="weui-cell__bd">
@@ -533,12 +556,21 @@
                                     </select>
                                 </div>
                             </div>
-                            {{--       <div class="weui-cell weui-cell_active">
-                                       <div class="weui-cell__hd"><label class="weui-label">税收收入</label></div>
+
+
+                            <div class="weui-cell weui-cell_active" v-bind:class="{'hide':form.pay_method!='部分代发'&&form.pay_method!='银行代发'}">
+                                <div class="weui-cell__hd"><label class="weui-label"><span class="red">* </span> 代发金额:</label></div>
+                                <div class="weui-cell__bd">
+                                    <input class="weui-input" type="number" pattern="[0-9]*" v-model="form.daifa"/>
+                                </div>
+
+                            </div>
+                             <div class="weui-cell weui-cell_active">
+                                       <div class="weui-cell__hd"><label class="weui-label"><span class="red">* </span> 工资总额:</label></div>
                                        <div class="weui-cell__bd">
-                                           <input class="weui-input" type="number" pattern="[0-9]*" v-model="form.tax"/>
+                                           <input class="weui-input" type="number" pattern="[0-9]*" v-model="form.total"/>
                                        </div>
-                                   </div>--}}
+                                   </div>
 
                             <div class="weui-cell weui-cell_active">
                                 <div class="weui-cell__hd"><label class="weui-label">社保月扣费</label></div>
@@ -580,6 +612,17 @@
 
                                     </select>
                                 </div>
+                            </div>
+
+                            <div class="weui-cell weui-cell_active" v-bind:class="{'hide':form.house_1!='全款房'&&form.house_1!='按揭房'}">
+                                <div class="weui-cell__hd"><label class="weui-label">房产价值：</label></div>
+                                <div class="weui-cell__bd">
+                                    <input class="weui-input" type="number" pattern="[0-9]*" v-model="form.house_4"
+                                           style="width: 80%"/>
+
+                                    万
+                                </div>
+
                             </div>
                             <div class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
                                 <div class="weui-cell__hd">
@@ -630,7 +673,13 @@
                                     </select>
                                 </div>
                             </div>
+                            <div class="weui-cell weui-cell_active" v-bind:class="{'hide':form.car_1!='按揭'&&form.car_1!='全款'}">
+                                <div class="weui-cell__hd"><label class="weui-label">车辆价值：</label></div>
+                                <div class="weui-cell__bd">
+                                    <input class="weui-input" type="number" pattern="[0-9]*" v-model="form.car_3"/>
+                                </div>
 
+                            </div>
 
                             <div class="weui-cell weui-cell_active" v-bind:class="{'hide':form.car_1!='按揭'}">
                                 <div class="weui-cell__hd"><label class="weui-label">月供</label></div>
@@ -703,9 +752,10 @@
                                     <select class="weui-select" name="select2" v-model="form.other">
                                         <option value="">请选择</option>
 
-                                        <option value="第三方帮忙贷款">第三方帮忙贷款</option>
-                                        <option value="第三方担保">第三方担保</option>
+                                        <option value="他人愿意担保">他人愿意担保</option>
+                                        <option value="可提供房产抵押">可提供房产抵押</option>
 
+                                        <option value="无">无</option>
 
                                     </select>
                                 </div>
@@ -783,7 +833,15 @@
 }">
                     <i class="weui-icon-success weui-icon_msg weui-icon_toast" style="    margin-bottom: 1rem;"></i>
                     <p>
-                        恭喜您，您的额度测算为:
+                        恭喜您，您的额度测算利息范围为：
+
+                        <span v-if="form.work_type==1"> 0.3%-8% </span>
+                        <span v-if="form.work_type==2"> 0.3%-0.85%</span>
+
+                        <span v-if="form.work_type==3"> 0.5%-0.98% </span>
+
+
+                        额度为：
                     </p>
                     <p style="    font-size: 2rem;
     line-height: 4rem;" class="weui-toast__content">@{{message2}}元</p>
@@ -899,7 +957,7 @@
                         //
 
 
-                        if (!this.form.amount > 0) {
+                if (!this.form.amount > 0) {
                             this.toast("需求金额必填");
                             return false;
                         }
@@ -929,7 +987,7 @@
                         }
 
                         if (!this.form.id_card > 0) {
-                            this.toast("出生日期必填");
+                            this.toast("年龄必填");
                             return false;
                         }
 
@@ -1048,11 +1106,11 @@
                                 return false;
                             }
 
-                            /*     if (this.form.tax == undefined || this.form.tax == "") {
-                                     this.toast("税收收入必填");
+                          if (this.form.total == undefined || this.form.total == "") {
+                                     this.toast("工资总额必填");
                                      return false;
-                                 }*/
-                            if (this.form.social_secruity == undefined || this.form.social_secruity == "") {
+                                 }
+                       /*     if (this.form.social_secruity == undefined || this.form.social_secruity == "") {
                                 this.toast("社保月扣费必填");
                                 return false;
                             }
@@ -1062,7 +1120,7 @@
                                 this.toast("公积金月扣费必填");
                                 return false;
                             }
-
+*/
                             //income_source
 
                         }
