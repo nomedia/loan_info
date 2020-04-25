@@ -50,14 +50,14 @@ class InfoController extends Controller
 
         //check phone code
 
-  /*      $code = Cache::get("SMSCODE" . $request->phone);
+     $code = Cache::get("SMSCODE" . $request->phone);
 
 
         if ($code != $request->sms_code || !$code) {
             return response()->json(["msg" => "验证码错误"], 403);
 
 
-        }*/
+        }
 
 
         $i = new Info();
