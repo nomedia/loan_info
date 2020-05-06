@@ -152,6 +152,10 @@
         .red {
         color: red;
         }
+        .weui-cells__group_form .weui-label {
+            max-width: 6em;
+            margin-right: 8px;
+        }
     </style>
 </head>
 <body data-weui-theme="light"
