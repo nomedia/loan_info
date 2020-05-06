@@ -990,7 +990,6 @@
 
                         //
 
-/*
 
                 if (!this.form.amount > 0) {
                             this.toast("需求金额必填");
@@ -1020,7 +1019,6 @@
                             this.toast("客户姓名必填");
                             return false;
                         }
-*/
 
                         if (!this.form.id_card > 0) {
                             this.toast("年龄必填");
