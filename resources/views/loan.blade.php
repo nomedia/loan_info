@@ -158,13 +158,20 @@
       style="    background: url(../images/topbg.png?ud=2) center top / 100% repeat-y rgb(178, 178, 178);">
 <div class="page" id="app">
 
-    <div class="weui-form__text-area">
+    <div class="weui-form__text-area" style="padding-left: 18px">
 
         <div class="row">
 
+<div class="col-md-12" style="    width: 100%;
+    height: 83px;">
 
-    <h4 style="margin: 20px;margin-left:0px;text-align: left;color: white">今日科技</h4>
+
+
+            <img  src="/images/logo.png" style="width: 80px;margin: 20px;margin-left:0px;text-align: left;float:left;color: white" alt="">
+</div>
         </div>
+
+
 
     </div>
     <div class="weui-form" style="background-color: #ff8f53;padding-top:0px;  background: rgb(178, 178, 178) url(../images/topbg.png?ud=2) repeat-y center top / 10rem 11.15rem;
@@ -201,9 +208,23 @@
                         <div class="weui-cell__hd"><label class="weui-label">  <span class="red">* </span> 客户姓名:</label></div>
                             <div class="weui-cell__bd">
                                 <input class="weui-input"
-                                       v-model="form.name">
+                                       v-model="form.name"         style="width: 60%"/>
+
+                                <select style="width: 36%"  name="select2" v-model="form.sex">
+                                    <option value="">请选择</option>
+
+                                    <option value="先生">先生</option>
+                                    <option value="女士">女士</option>
+
+                                </select>
+
+
+
                             </div>
                         </div>
+
+
+
 
                         <div class="weui-cell weui-cell_active">
                             <div class="weui-cell__hd"><label class="weui-label"><span class="red">* </span> 年龄:</label></div>
@@ -242,7 +263,7 @@
 
                         <div class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
                             <div class="weui-cell__hd">
-                                <label for="" class="weui-label"><span class="red">* </span> 还款期限:</label>
+                                <label for="" class="weui-label"><span class="red">* </span> 贷款期限:</label>
                             </div>
                             <div class="weui-cell__bd">
                                 <select class="weui-select" name="select2" v-model="form.period">
@@ -331,7 +352,10 @@
                                  style="      border-radius: 8px 8px 0px 0px; border-top:  3px solid #2f2f2f;">
                                 <div class="weui-cell__hd"><label class="weui-label"><span class="red">* </span> 单位所在市:</label></div>
                                 <div class="weui-cell__bd">
-                                    <input class="weui-input" v-model="form.company_address"/>
+                                    <input class="weui-input" v-model="form.company_address"
+                                           style="width: 80%"/>
+
+                                    市
                                 </div>
                             </div>
 
@@ -475,13 +499,11 @@
                             </div>
                             <div class="weui-cell weui-cell_active"
                                  style="border-bottom:3px solid #2f2f2f; border-radius: 0px 0px 8px 8px; ">
-                                <div class="weui-cell__hd"><label class="weui-label"><span class="red">* </span> 银行流水:</label></div>
+                                <div class="weui-cell__hd"><label class="weui-label"><span class="red">* </span>银行流水:</label></div>
                                 <div class="weui-cell__bd">
                                     <input class="weui-input" type="number" pattern="[0-9]*"
                                            v-model="form.income_month"
-                                           style="width: 80%"/>
-
-                                    /月
+                                           style="width: 80%"/>月
 
                                 </div>
                             </div>
@@ -508,7 +530,10 @@
                             <div class="weui-cell weui-cell_active">
                                 <div class="weui-cell__hd"><label class="weui-label"><span class="red">* </span> 单位所在市:</label></div>
                                 <div class="weui-cell__bd">
-                                    <input class="weui-input" v-model="form.company_address"/>
+                                    <input class="weui-input" v-model="form.company_address"
+                                           style="width: 80%"/>
+
+                                    市
                                 </div>
                             </div>
 
@@ -647,7 +672,7 @@
 
 
                             <div class="weui-cell weui-cell_active" v-bind:class="{'hide':form.house_1!='按揭房'}">
-                                <div class="weui-cell__hd"><label class="weui-label">月供</label></div>
+                                <div class="weui-cell__hd"><label class="weui-label">房产月供</label></div>
                                 <div class="weui-cell__bd">
                                     <input class="weui-input" placeholder="" v-model="form.house_3">
                                 </div>
@@ -666,23 +691,25 @@
                                     <select class="weui-select" name="select2" v-model="form.car_1">
                                         <option value="">请选择</option>
 
-                                        <option value="按揭">按揭</option>
-                                        <option value="抵押">抵押</option>
-                                        <option value="全款">全款</option>
+                                        <option value="按揭车">按揭车</option>
+                                        <option value="抵押车">抵押车</option>
+                                        <option value="全款车">全款车</option>
+                                        <option value="无">无</option>
 
                                     </select>
                                 </div>
                             </div>
-                            <div class="weui-cell weui-cell_active" v-bind:class="{'hide':form.car_1!='按揭'&&form.car_1!='全款'}">
+                            <div class="weui-cell weui-cell_active" v-bind:class="{'hide':form.car_1!='按揭车'&&form.car_1!='全款车'}">
                                 <div class="weui-cell__hd"><label class="weui-label">车辆价值：</label></div>
                                 <div class="weui-cell__bd">
-                                    <input class="weui-input" type="number" pattern="[0-9]*" v-model="form.car_3"/>
+                                    <input class="weui-input" type="number" pattern="[0-9]*" v-model="form.car_3"
+                                           style="width: 80%"/>万
                                 </div>
 
                             </div>
 
                             <div class="weui-cell weui-cell_active" v-bind:class="{'hide':form.car_1!='按揭'}">
-                                <div class="weui-cell__hd"><label class="weui-label">月供</label></div>
+                                <div class="weui-cell__hd"><label class="weui-label">汽车月供</label></div>
                                 <div class="weui-cell__bd">
                                     <input class="weui-input" placeholder="" v-model="form.car_2">
                                 </div>
@@ -833,15 +860,16 @@
 }">
                     <i class="weui-icon-success weui-icon_msg weui-icon_toast" style="    margin-bottom: 1rem;"></i>
                     <p>
-                        恭喜您，您的额度测算利息范围为：
+                        恭喜您 </p>
+                    <p>
+                       您的测算结果如下：
 
+                    </p>
+                    <p>
+                        贷款利息为:
                         <span v-if="form.work_type==1"> 0.3%-8% </span>
                         <span v-if="form.work_type==2"> 0.3%-0.85%</span>
-
-                        <span v-if="form.work_type==3"> 0.5%-0.98% </span>
-
-
-                        额度为：
+                        <span v-if="form.work_type==3"> 0.5%-0.98% </span>/月，授信额度为：
                     </p>
                     <p style="    font-size: 2rem;
     line-height: 4rem;" class="weui-toast__content">@{{message2}}元</p>
@@ -876,7 +904,9 @@
                     message: 'Hello Vue!',
                     form: {
                         "work_type": 0,
-                        "period": ''
+                        "period": '',
+                        "sex": '先生'
+
                     },
                     message2: "",
                     id: 0,
@@ -956,6 +986,7 @@
 
                         //
 
+/*
 
                 if (!this.form.amount > 0) {
                             this.toast("需求金额必填");
@@ -985,6 +1016,7 @@
                             this.toast("客户姓名必填");
                             return false;
                         }
+*/
 
                         if (!this.form.id_card > 0) {
                             this.toast("年龄必填");
