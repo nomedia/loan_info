@@ -643,7 +643,7 @@
                                 </div>
                             </div>
 
-                            <div class="weui-cell weui-cell_active" v-bind:class="{'hide':form.house_1!='全款房'&&form.house_1!='按揭房'}">
+                            <div class="weui-cell weui-cell_active" v-bind:class="{'hide':form.house_1!='全款房'&&form.house_1!='按揭房'&&form.house_1!='抵押房'}">
                                 <div class="weui-cell__hd"><label class="weui-label">房产价值：</label></div>
                                 <div class="weui-cell__bd">
                                     <input class="weui-input" type="number" pattern="[0-9]*" v-model="form.house_4"
@@ -703,7 +703,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="weui-cell weui-cell_active" v-bind:class="{'hide':form.car_1!='按揭车'&&form.car_1!='全款车'}">
+                            <div class="weui-cell weui-cell_active" v-bind:class="{'hide':form.car_1!='按揭车'&&form.car_1!='全款车'&&form.car_1!='抵押车'}">
                                 <div class="weui-cell__hd"><label class="weui-label">车辆价值：</label></div>
                                 <div class="weui-cell__bd">
                                     <input class="weui-input" type="number" pattern="[0-9]*" v-model="form.car_3"
