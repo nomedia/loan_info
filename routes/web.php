@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', "InfoController@index");
 
 
@@ -25,3 +26,5 @@ Route::put("/loan", "InfoController@update");
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('home/export/', 'HomeController@export');

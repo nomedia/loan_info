@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\InfoExport;
 use App\Info;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class HomeController extends Controller
 {
@@ -29,5 +31,11 @@ class HomeController extends Controller
 
 
         return view('home', compact("lists"));
+    }
+
+
+    public function export()
+    {
+        return Excel::download(new InfoExport, date("YmdHis").'登记用户.xlsx');
     }
 }

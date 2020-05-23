@@ -14,7 +14,17 @@
         }
     </style>
     <div class="container">
+
+
         <div class="row justify-content-center">
+            <div class="col-md-12">
+
+                <a href="/home/export/">
+                <input type="button" class="btn btn-success" value="下载" style="width: 300px;margin-bottom: 50px">
+
+                </a>
+
+            </div>
             <div class="col-md-12">
 
 
