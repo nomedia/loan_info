@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', "InfoController@index");
 
 
 Route::get("/send_sms", "InfoController@sendSms");
